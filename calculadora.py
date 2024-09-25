@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import *
 
-# Preciso estudar um pouco mais sobre o tkinter e python para conseguir fazer essa calculadora (:
 cor_de_fundo = '#292929'
 cor_da_margem = '#a2a2a2'
 numero_1 = int(0)
@@ -118,7 +117,7 @@ tres.place(x=175, y=280)
 zero = Button(janela, height=3, width=22, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='0',  command=lambda: click_button(0))
 zero.place(x=5, y=335)
 
-ponto = Button(janela, height=3, width=10, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='.',  command=ponto_flutuante)
+ponto = Button(janela, height=3, width=10, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='.')
 ponto.place(x=175, y=335)
 
 adicao = Button(janela, height=3, width=8, font=('Calisto MT', 8, 'bold'), bg="#fcac3c", fg='#ffffff', text='+',  command=somar)
