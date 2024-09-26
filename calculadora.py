@@ -28,6 +28,10 @@ def click_button(numero):
     caixa_texto.insert(END, str(atual) + str(numero))
 
 
+def ponto():
+    caixa_texto.insert(END, '.')
+
+
 def somar():
     global adicao, numero_1, somaetc
     numero_1 = int(caixa_texto.get())
@@ -37,16 +41,14 @@ def somar():
 
 def subtracao():
     global somaetc, numero_1
-    numero_1 = int(caixa_texto.get())
+    numero_1 = float(caixa_texto.get())
     somaetc = 'subtracao'
     caixa_texto.delete(0, END)
 
 
 def multiplicacao():
     global somaetc, numero_1
-    if numero_1 == float:
-        numero_1 = float(numero_1)
-    numero_1 = int(caixa_texto.get())
+    numero_1 = float(caixa_texto.get())
     somaetc = 'multiplicacao'
     caixa_texto.delete(0, END)
 
@@ -60,7 +62,7 @@ def divisao():
 
 def resultado():
     global numero_1, numero_2, somaetc, result
-    numero_2 = int(caixa_texto.get())
+    numero_2 = float(caixa_texto.get())
 
     if somaetc == 'soma':
         result = numero_1 + numero_2
@@ -70,6 +72,11 @@ def resultado():
         result = numero_1 * numero_2
     elif somaetc == 'divisao':
         result = numero_1 / numero_2
+    else:
+        result = 'Error...'
+
+    if isinstance(result, float) and result.is_integer():
+        result = int(result)
 
     caixa_texto.delete(0, END)
     caixa_texto.insert(END, str(result))
@@ -117,7 +124,7 @@ tres.place(x=175, y=280)
 zero = Button(janela, height=3, width=22, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='0',  command=lambda: click_button(0))
 zero.place(x=5, y=335)
 
-ponto = Button(janela, height=3, width=10, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='.')
+ponto = Button(janela, height=3, width=10, font=('Calisto MT', 8, 'bold'), bg=cor_da_margem, fg='#ffffff', text='.', command=ponto)
 ponto.place(x=175, y=335)
 
 adicao = Button(janela, height=3, width=8, font=('Calisto MT', 8, 'bold'), bg="#fcac3c", fg='#ffffff', text='+',  command=somar)
