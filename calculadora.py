@@ -19,7 +19,9 @@ janela.configure(bg=cor_de_fundo)
 
 
 def apagar():
+    global somaetc
     caixa_texto.delete(0, END)
+    somaetc = ''
 
 
 def click_button(numero):
